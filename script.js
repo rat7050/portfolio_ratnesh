@@ -4,6 +4,7 @@ const portfolio = {
   location: "Bhopal, Madhya Pradesh",
   email: "ratneshkumar77659@gmail.com",
   profileImage: "https://github.com/rat7050.png",
+  githubUsername: "rat7050",
   github: "https://github.com/rat7050",
   linkedin:
     "https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -18,9 +19,9 @@ const portfolio = {
   quote:
     "I am most interested in projects where data is not just stored, but used to solve a real problem clearly and practically.",
   stats: [
-    { value: "5", label: "Public GitHub repos" },
-    { value: "3", label: "Featured SQL projects" },
-    { value: "24/7", label: "Learning mindset" }
+    { value: "--", label: "Public GitHub repos" },
+    { value: "3", label: "Latest repos shown" },
+    { value: "Live", label: "Auto GitHub sync" }
   ],
   focusAreas: [
     "Data analytics and AI-based project building",
@@ -212,19 +213,86 @@ function renderProjects() {
               <p class="section-tag">${project.type}</p>
               <h3>${project.title}</h3>
               <p>${project.description}</p>
-              <p>${project.impact}</p>
+              ${project.impact ? `<p>${project.impact}</p>` : ""}
             </div>
             <div class="project-meta">
               ${project.tags.map((tag) => `<span class="chip">${tag}</span>`).join("")}
             </div>
             <div class="project-links">
               <a class="text-link" href="${project.url}" target="_blank" rel="noreferrer">View GitHub Repo</a>
+              ${project.demoUrl ? `<a class="text-link" href="${project.demoUrl}" target="_blank" rel="noreferrer">Open Live Demo</a>` : ""}
             </div>
           </article>
         `
       )
       .join("");
   });
+}
+
+function formatDate(value) {
+  const date = new Date(value);
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  }).format(date);
+}
+
+function formatRepoTitle(name) {
+  return name
+    .replace(/[-_]+/g, " ")
+    .replace(/\b[a-z]/g, (character) => character.toUpperCase());
+}
+
+function mapGitHubRepoToProject(repo) {
+  return {
+    title: formatRepoTitle(repo.name),
+    type: repo.language ? `${repo.language} Repository` : "GitHub Repository",
+    description:
+      repo.description ||
+      "Public GitHub repository by Ratnesh Kumar. Open it to explore the code, commits, and project structure.",
+    impact: "",
+    tags: [
+      repo.language || "Code",
+      "Public",
+      repo.updated_at ? `Updated ${formatDate(repo.updated_at)}` : null
+    ].filter(Boolean),
+    url: repo.html_url,
+    demoUrl: repo.homepage || ""
+  };
+}
+
+async function syncGitHubProjects() {
+  try {
+    const response = await fetch(
+      `https://api.github.com/users/${portfolio.githubUsername}/repos?sort=updated&per_page=100&type=owner`,
+      {
+        headers: {
+          Accept: "application/vnd.github+json"
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`GitHub API request failed with status ${response.status}`);
+    }
+
+    const repos = await response.json();
+    const publicRepos = repos.filter((repo) => !repo.fork && !repo.archived);
+
+    if (!publicRepos.length) return;
+
+    portfolio.projects = publicRepos.map(mapGitHubRepoToProject);
+    portfolio.stats[0].value = String(publicRepos.length);
+    portfolio.stats[1].value = String(Math.min(3, publicRepos.length));
+
+    renderStats();
+    renderProjects();
+  } catch (error) {
+    console.warn("GitHub repo sync failed. Showing fallback projects instead.", error);
+    portfolio.stats[0].value = String(portfolio.projects.length);
+    renderStats();
+  }
 }
 
 function renderProcess() {
@@ -397,7 +465,7 @@ fillText("[data-about-heading]", portfolio.aboutHeading);
 fillText("[data-about-short]", portfolio.aboutShort);
 fillText("[data-about-long]", portfolio.aboutLong);
 fillText("[data-quote]", portfolio.quote);
-fillText("[data-project-summary]", "These projects highlight practical SQL, data cleaning, schema thinking, and business insight generation.");
+fillText("[data-project-summary]", "These repositories are synced from GitHub so new public repos can appear here automatically.");
 fillText("[data-contact-intro]", portfolio.contactIntro);
 fillText("[data-availability-title]", portfolio.availabilityTitle);
 fillText("[data-availability-copy]", portfolio.availabilityCopy);
@@ -422,3 +490,4 @@ renderContactLinks();
 renderCollabFit();
 highlightCurrentPage();
 setupMobileNav();
+syncGitHubProjects();
