@@ -1,6 +1,7 @@
 const portfolio = {
   name: "Ratnesh Kumar",
   role: "AI & Data Science Student",
+  roles: ["AI Engineer", "Data Analyst", "Python Developer", "Machine Learning Enthusiast"],
   location: "Bhopal, Madhya Pradesh, India",
   email: "ratneshkumar77659@gmail.com",
   profileImage: "https://github.com/rat7050.png",
@@ -8,34 +9,71 @@ const portfolio = {
   github: "https://github.com/rat7050",
   linkedin:
     "https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-  heroTitle: "Ratnesh Kumar builds practical AI and data projects.",
   summary:
-    "B.Tech student in Artificial Intelligence and Data Science, focused on real-world problem solving through SQL, analytics, Python, and machine learning.",
-  aboutHeading: "I enjoy transforming raw information into systems, insights, and useful decisions.",
+    "AI and Data Science student building practical Python, SQL, analytics, and machine learning projects with a clean problem-solving mindset.",
+  aboutHeading: "I enjoy turning raw information into decisions, systems, and projects that feel immediately useful.",
   aboutShort:
-    "My work is grounded in data-first thinking: collect the right information, structure it well, analyze it carefully, and present it clearly. I am especially interested in projects where analytics can improve real workflows.",
+    "My work is grounded in data-first thinking: understand the structure, clean the signal, build clear logic, and present the insight so it is easy to trust.",
   aboutLong:
-    "I am an AI and Data Science student who likes building practical projects instead of staying only at theory level. From SQL-based systems to analytics-driven problem solving, I enjoy understanding how data moves, what it reveals, and how it can support better decisions.",
+    "I am an AI and Data Science student who likes building practical projects instead of staying only at theory level. From SQL systems to analytics and early machine learning work, I enjoy understanding how data moves, what it reveals, and how it can support better decisions.",
   quote:
-    "I am most interested in projects where data is not just stored, but used to solve a real problem clearly and practically.",
+    "The best technical work feels useful fast: clear structure, practical logic, and insights that someone can act on.",
   stats: [
-    { value: "--", label: "Public GitHub repos" },
-    { value: "3", label: "Featured on home" },
-    { value: "Live", label: "GitHub sync" }
+    { value: 3, label: "Public projects", suffix: "" },
+    { value: 6, label: "Core skill areas", suffix: "" },
+    { value: 1, label: "Certificates", suffix: "" }
   ],
-  techStack: ["SQL", "Python", "C++", "Power BI", "Pandas", "NumPy", "SQLite", "Canva"],
+  techStack: ["Python", "SQL", "Pandas", "NumPy", "Power BI", "SQLite", "C++", "Canva"],
+  skillCards: [
+    {
+      title: "Python Development",
+      level: 90,
+      text: "Writing practical scripts and project logic for data workflows, automation, and problem solving.",
+      tags: ["Automation", "Clean logic"]
+    },
+    {
+      title: "SQL and Databases",
+      level: 92,
+      text: "Designing structured tables, joins, and business-focused queries that answer real questions clearly.",
+      tags: ["Schema thinking", "Joins", "Aggregation"]
+    },
+    {
+      title: "Data Analytics",
+      level: 86,
+      text: "Exploring raw data, finding patterns, and translating them into readable decisions and story-driven outputs.",
+      tags: ["Cleaning", "Insight", "Storytelling"]
+    },
+    {
+      title: "Machine Learning",
+      level: 74,
+      text: "Growing from fundamentals into stronger applied workflows, model understanding, and practical experimentation.",
+      tags: ["Foundations", "Experimentation"]
+    },
+    {
+      title: "Visualization",
+      level: 78,
+      text: "Presenting insights through clear dashboards, concise summaries, and recruiter-friendly project framing.",
+      tags: ["Power BI", "Presentation"]
+    },
+    {
+      title: "Problem Solving",
+      level: 88,
+      text: "Breaking unclear problems into smaller technical steps that can be tested, improved, and communicated well.",
+      tags: ["Structured thinking", "Execution"]
+    }
+  ],
   process: [
     {
-      title: "Understand the data",
-      text: "I begin by understanding the structure, quality, and business meaning behind the dataset."
+      title: "Understand the signal",
+      text: "I begin by understanding what the dataset means, where the gaps are, and which questions matter most."
     },
     {
       title: "Build clean logic",
       text: "I like writing organized queries and analysis steps so the solution stays clear and easy to improve."
     },
     {
-      title: "Deliver useful insight",
-      text: "The result should help someone understand performance, make a choice, or improve a workflow."
+      title: "Deliver useful output",
+      text: "The final work should help someone understand performance, make a choice, or improve a workflow."
     }
   ],
   facts: [
@@ -58,6 +96,32 @@ const portfolio = {
       text: "Growing toward stronger machine learning workflows, better storytelling, and clearer business-facing analysis."
     }
   ],
+  timeline: [
+    {
+      phase: "Foundation",
+      title: "AI and Data Science degree path",
+      text: "Building strong fundamentals in analytics, programming, and structured technical thinking.",
+      year: "Stage 01"
+    },
+    {
+      phase: "Applied Data",
+      title: "SQL-driven project building",
+      text: "Creating projects around databases, queries, cleaning, and business-oriented analysis.",
+      year: "Stage 02"
+    },
+    {
+      phase: "Portfolio Quality",
+      title: "Recruiter-ready execution",
+      text: "Improving presentation, interaction quality, and project clarity so the work feels polished and intentional.",
+      year: "Stage 03"
+    },
+    {
+      phase: "Next Growth",
+      title: "Machine learning expansion",
+      text: "Moving deeper into practical ML workflows and stronger engineering habits through continued project work.",
+      year: "Stage 04"
+    }
+  ],
   strengths: [
     "SQL querying",
     "Database design thinking",
@@ -71,7 +135,7 @@ const portfolio = {
   ],
   certifications: [
     {
-      title: "LinkedIn Certificates",
+      title: "LinkedIn Learning Certificates",
       issuer: "LinkedIn Profile",
       text: "Professional learning certificates and course completions are currently showcased through my LinkedIn profile.",
       url: "https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -142,6 +206,8 @@ const portfolio = {
 };
 
 let revealObserver;
+let counterObserver;
+let progressObserver;
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -177,6 +243,18 @@ function getDelayClass(index) {
   if (index % 3 === 1) return " delay-1";
   if (index % 3 === 2) return " delay-2";
   return "";
+}
+
+function getRevealClass(index) {
+  return index % 2 === 0 ? " reveal reveal-left" : " reveal reveal-right";
+}
+
+function getInitials(title) {
+  return title
+    .split(" ")
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
 }
 
 function fillText(selector, value) {
@@ -233,10 +311,107 @@ function observeReveals() {
   });
 }
 
-function showAboveFoldSections() {
-  document.querySelectorAll(".hero-section .reveal, .page-hero .reveal").forEach((item) => {
+function markVisibleImmediately(selector) {
+  document.querySelectorAll(selector).forEach((item) => {
     item.dataset.revealBound = "true";
     item.classList.add("is-visible");
+  });
+}
+
+function formatCounter(value, suffix = "") {
+  return `${Math.round(value).toLocaleString("en-US")}${suffix}`;
+}
+
+function animateCounter(node) {
+  const target = Number(node.dataset.target || 0);
+  const suffix = node.dataset.suffix || "";
+
+  if (prefersReducedMotion()) {
+    node.textContent = formatCounter(target, suffix);
+    return;
+  }
+
+  const duration = 1100;
+  const startTime = performance.now();
+
+  const step = (timestamp) => {
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    node.textContent = formatCounter(target * eased, suffix);
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+
+  window.requestAnimationFrame(step);
+}
+
+function setupCounterAnimation() {
+  const counters = document.querySelectorAll("[data-counter]:not([data-counter-bound])");
+  if (!counters.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    counters.forEach((counter) => {
+      counter.dataset.counterBound = "true";
+      animateCounter(counter);
+    });
+    return;
+  }
+
+  if (!counterObserver) {
+    counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.5
+      }
+    );
+  }
+
+  counters.forEach((counter) => {
+    counter.dataset.counterBound = "true";
+    counterObserver.observe(counter);
+  });
+}
+
+function setupProgressAnimation() {
+  const bars = document.querySelectorAll(".progress-fill:not([data-progress-bound])");
+  if (!bars.length) return;
+
+  if (!("IntersectionObserver" in window) || prefersReducedMotion()) {
+    bars.forEach((bar) => {
+      bar.dataset.progressBound = "true";
+      bar.style.width = `${bar.dataset.level || 0}%`;
+    });
+    return;
+  }
+
+  if (!progressObserver) {
+    progressObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.style.width = `${entry.target.dataset.level || 0}%`;
+          progressObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.4
+      }
+    );
+  }
+
+  bars.forEach((bar) => {
+    bar.dataset.progressBound = "true";
+    progressObserver.observe(bar);
   });
 }
 
@@ -246,8 +421,7 @@ function renderChips(containerSelector, items) {
 
   container.innerHTML = items
     .map(
-      (item) =>
-        `<span class="chip reveal${getDelayClass(items.indexOf(item))}">${escapeHtml(item)}</span>`
+      (item, index) => `<span class="chip reveal${getDelayClass(index)}">${escapeHtml(item)}</span>`
     )
     .join("");
 
@@ -261,8 +435,10 @@ function renderStats() {
   container.innerHTML = portfolio.stats
     .map(
       (stat, index) => `
-        <article class="stat-card reveal${getDelayClass(index)}">
-          <strong>${escapeHtml(stat.value)}</strong>
+        <article class="stat-card glass-card reveal${getDelayClass(index)}">
+          <strong data-counter data-target="${escapeHtml(stat.value)}" data-suffix="${escapeHtml(
+            stat.suffix || ""
+          )}">0</strong>
           <span>${escapeHtml(stat.label)}</span>
         </article>
       `
@@ -270,6 +446,7 @@ function renderStats() {
     .join("");
 
   observeReveals();
+  setupCounterAnimation();
 }
 
 function renderProjects() {
@@ -286,16 +463,28 @@ function renderProjects() {
         const repoUrl = sanitizeUrl(project.url);
         const demoUrl = project.demoUrl ? sanitizeUrl(project.demoUrl) : "";
         const tags = (project.tags || [])
+          .slice(0, 3)
           .map((tag) => `<span class="chip">${escapeHtml(tag)}</span>`)
           .join("");
 
         return `
-          <article class="project-card reveal${getDelayClass(index)}">
-            <div class="project-topline">
-              <span class="project-index">0${index + 1}</span>
-              <span>${type}</span>
+          <article class="project-card glass-card${getRevealClass(index)}${getDelayClass(
+            index
+          )}" data-tilt-card data-spotlight-card>
+            <div class="project-visual">
+              <span class="project-badge">${type}</span>
+              <strong>${escapeHtml(getInitials(project.title))}</strong>
+              <div class="project-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
             <div class="project-copy">
+              <div class="project-topline">
+                <span class="project-index">0${index + 1}</span>
+                <span>${type}</span>
+              </div>
               <h3>${title}</h3>
               <p>${description}</p>
             </div>
@@ -312,6 +501,81 @@ function renderProjects() {
       })
       .join("");
   });
+  observeReveals();
+}
+
+function showProjectSkeletons() {
+  document.querySelectorAll("[data-projects]").forEach((container) => {
+    const count = container.getAttribute("data-projects") === "featured" ? 3 : 6;
+
+    container.innerHTML = Array.from({ length: count }, (_, index) => {
+      return `
+        <article class="project-card loading glass-card reveal${getDelayClass(index)}">
+          <div class="project-visual skeleton-block"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="project-meta skeleton-meta">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+      `;
+    }).join("");
+  });
+
+  observeReveals();
+}
+
+function renderSkillCards() {
+  const container = document.querySelector("[data-skills]");
+  if (!container) return;
+
+  container.innerHTML = portfolio.skillCards
+    .map(
+      (skill, index) => `
+        <article class="skill-card glass-card${getRevealClass(index)}${getDelayClass(
+          index
+        )}" data-tilt-card data-spotlight-card>
+          <div class="skill-topline">
+            <span>${escapeHtml(skill.tags[0] || "Skill")}</span>
+            <strong>${escapeHtml(skill.level)}%</strong>
+          </div>
+          <h3>${escapeHtml(skill.title)}</h3>
+          <p>${escapeHtml(skill.text)}</p>
+          <div class="skill-tags">
+            ${(skill.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+          </div>
+          <div class="progress-track">
+            <span class="progress-fill" data-level="${escapeHtml(skill.level)}"></span>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+
+  observeReveals();
+  setupProgressAnimation();
+}
+
+function renderTimeline() {
+  const container = document.querySelector("[data-timeline]");
+  if (!container) return;
+
+  container.innerHTML = portfolio.timeline
+    .map(
+      (item, index) => `
+        <article class="timeline-item-home glass-card${getRevealClass(index)}${getDelayClass(
+          index
+        )}" data-spotlight-card>
+          <span class="timeline-step">${escapeHtml(item.year)}</span>
+          <p class="section-tag">${escapeHtml(item.phase)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.text)}</p>
+        </article>
+      `
+    )
+    .join("");
+
   observeReveals();
 }
 
@@ -394,7 +658,7 @@ function renderCertificates() {
   container.innerHTML = portfolio.certifications
     .map(
       (item, index) => `
-        <article class="certificate-card reveal${getDelayClass(index)}">
+        <article class="certificate-card reveal${getDelayClass(index)}" data-spotlight-card>
           <div>
             <p class="section-tag">${escapeHtml(item.issuer)}</p>
             <h3>${escapeHtml(item.title)}</h3>
@@ -434,7 +698,7 @@ function renderContactLinks() {
   container.innerHTML = contactItems
     .map(
       (item, index) => `
-        <article class="contact-item reveal${getDelayClass(index)}">
+        <article class="contact-item reveal${getDelayClass(index)}" data-spotlight-card>
           <h3>${escapeHtml(item.title)}</h3>
           <p><a href="${sanitizeUrl(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(item.text)}</a></p>
         </article>
@@ -452,7 +716,7 @@ function renderCollabFit() {
   container.innerHTML = portfolio.collaborationFit
     .map(
       (item, index) => `
-        <article class="fit-card reveal${getDelayClass(index)}">
+        <article class="fit-card reveal${getDelayClass(index)}" data-spotlight-card>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>
         </article>
@@ -465,10 +729,11 @@ function renderCollabFit() {
 
 function highlightCurrentPage() {
   const page = document.body.dataset.page;
+  if (page === "home") return;
+
   document.querySelectorAll(".site-nav a").forEach((link) => {
     const href = link.getAttribute("href");
     if (
-      (page === "home" && href === "index.html") ||
       (page === "projects" && href === "projects.html") ||
       (page === "about" && href === "about.html") ||
       (page === "contact" && href === "contact.html")
@@ -476,6 +741,31 @@ function highlightCurrentPage() {
       link.classList.add("active");
     }
   });
+}
+
+function setupHomeSectionHighlight() {
+  if (document.body.dataset.page !== "home") return;
+
+  const links = Array.from(document.querySelectorAll("[data-section-link]"));
+  const sections = Array.from(document.querySelectorAll("main section[id]"));
+  if (!links.length || !sections.length) return;
+
+  const updateActive = () => {
+    const current = sections.reduce((activeId, section) => {
+      if (section.getBoundingClientRect().top <= 180) {
+        return section.id;
+      }
+
+      return activeId;
+    }, sections[0].id);
+
+    links.forEach((link) => {
+      link.classList.toggle("active", link.dataset.sectionLink === current);
+    });
+  };
+
+  updateActive();
+  window.addEventListener("scroll", updateActive, { passive: true });
 }
 
 function setupMobileNav() {
@@ -521,22 +811,69 @@ function setupScrollProgress() {
   window.addEventListener("resize", updateProgress);
 }
 
-function setupCursorGlow() {
-  const glow = document.querySelector("[data-cursor-glow]");
-  if (!glow) return;
+function setupBackToTop() {
+  const button = document.querySelector("[data-back-to-top]");
+  if (!button) return;
 
-  if (hasCoarsePointer()) {
+  const updateVisibility = () => {
+    button.classList.toggle("is-visible", window.scrollY > 520);
+  };
+
+  button.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  });
+
+  updateVisibility();
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+}
+
+function setupCursorEffects() {
+  const glow = document.querySelector("[data-cursor-glow]");
+  const background = document.querySelector(".site-background");
+  if (!glow || !background) return;
+
+  if (hasCoarsePointer() || prefersReducedMotion()) {
     glow.classList.add("hidden");
     return;
   }
 
-  const setGlowPosition = (event) => {
-    glow.style.transform = `translate(${event.clientX - glow.offsetWidth / 2}px, ${
-      event.clientY - glow.offsetHeight / 2
-    }px)`;
+  const trail = Array.from({ length: 5 }, () => {
+    const dot = document.createElement("span");
+    dot.className = "cursor-trail";
+    background.appendChild(dot);
+    return { node: dot, x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  });
+
+  const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+  const renderTrail = () => {
+    trail.forEach((dot, index) => {
+      const leader = index === 0 ? pointer : trail[index - 1];
+      dot.x += (leader.x - dot.x) * (0.28 - index * 0.03);
+      dot.y += (leader.y - dot.y) * (0.28 - index * 0.03);
+      dot.node.style.transform = `translate(${dot.x}px, ${dot.y}px) scale(${1 - index * 0.12})`;
+    });
+
+    window.requestAnimationFrame(renderTrail);
   };
 
-  window.addEventListener("pointermove", setGlowPosition);
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      glow.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+    },
+    { passive: true }
+  );
+  window.addEventListener("pointerleave", () => {
+    glow.style.opacity = "0";
+  });
+  window.addEventListener("pointerenter", () => {
+    glow.style.opacity = "";
+  });
+
+  renderTrail();
 }
 
 function renderParticles() {
@@ -548,19 +885,249 @@ function renderParticles() {
     return;
   }
 
-  const particleCount = hasCoarsePointer() ? 6 : 10;
+  const particleCount = hasCoarsePointer() ? 12 : 20;
 
-  const particles = Array.from({ length: particleCount }, (_, index) => {
+  const particles = Array.from({ length: particleCount }, () => {
     const left = Math.round(Math.random() * 100);
     const top = Math.round(Math.random() * 100);
-    const size = 2 + (index % 3);
-    const duration = 12 + Math.random() * 10;
-    const delay = Math.random() * 4;
+    const size = 1 + Math.round(Math.random() * 3);
+    const duration = 10 + Math.random() * 14;
+    const delay = Math.random() * 5;
 
     return `<span style="left:${left}%; top:${top}%; width:${size}px; height:${size}px; --duration:${duration}s; --delay:${delay}s;"></span>`;
   }).join("");
 
   field.innerHTML = particles;
+}
+
+function setupTypingEffect() {
+  const node = document.querySelector("[data-typed-role]");
+  if (!node) return;
+
+  if (prefersReducedMotion()) {
+    node.textContent = portfolio.roles[0];
+    return;
+  }
+
+  let roleIndex = 0;
+  let characterIndex = portfolio.roles[0].length;
+  let deleting = true;
+
+  node.textContent = portfolio.roles[0];
+
+  const tick = () => {
+    const currentRole = portfolio.roles[roleIndex];
+
+    if (!deleting) {
+      characterIndex += 1;
+      node.textContent = currentRole.slice(0, characterIndex);
+
+      if (characterIndex === currentRole.length) {
+        deleting = true;
+        window.setTimeout(tick, 1400);
+        return;
+      }
+
+      window.setTimeout(tick, 82);
+      return;
+    }
+
+    characterIndex -= 1;
+    node.textContent = currentRole.slice(0, characterIndex);
+
+    if (characterIndex === 0) {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % portfolio.roles.length;
+      window.setTimeout(tick, 260);
+      return;
+    }
+
+    window.setTimeout(tick, 44);
+  };
+
+  window.setTimeout(tick, 1400);
+}
+
+function setupSpotlightCards() {
+  if (hasCoarsePointer()) return;
+
+  document.querySelectorAll("[data-spotlight-card]").forEach((card) => {
+    if (card.dataset.spotlightBound === "true") return;
+    card.dataset.spotlightBound = "true";
+
+    card.addEventListener("pointermove", (event) => {
+      const bounds = card.getBoundingClientRect();
+      const x = event.clientX - bounds.left;
+      const y = event.clientY - bounds.top;
+      card.style.setProperty("--spot-x", `${x}px`);
+      card.style.setProperty("--spot-y", `${y}px`);
+    });
+  });
+}
+
+function setupTiltCards() {
+  if (hasCoarsePointer() || prefersReducedMotion()) return;
+
+  document.querySelectorAll("[data-tilt-card]").forEach((card) => {
+    if (card.dataset.tiltBound === "true") return;
+    card.dataset.tiltBound = "true";
+
+    card.addEventListener("pointermove", (event) => {
+      const bounds = card.getBoundingClientRect();
+      const offsetX = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const offsetY = (event.clientY - bounds.top) / bounds.height - 0.5;
+      const rotateY = offsetX * 8;
+      const rotateX = offsetY * -8;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
+
+function setupMagneticButtons() {
+  if (hasCoarsePointer() || prefersReducedMotion()) return;
+
+  document.querySelectorAll("[data-magnetic]").forEach((button) => {
+    if (button.dataset.magneticBound === "true") return;
+    button.dataset.magneticBound = "true";
+
+    button.addEventListener("pointermove", (event) => {
+      const bounds = button.getBoundingClientRect();
+      const x = event.clientX - bounds.left - bounds.width / 2;
+      const y = event.clientY - bounds.top - bounds.height / 2;
+      button.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+    });
+
+    button.addEventListener("pointerleave", () => {
+      button.style.transform = "";
+    });
+  });
+}
+
+function setupButtonRipples() {
+  document.querySelectorAll(".button").forEach((button) => {
+    if (button.dataset.rippleBound === "true") return;
+    button.dataset.rippleBound = "true";
+
+    button.addEventListener("click", (event) => {
+      const ripple = document.createElement("span");
+      const bounds = button.getBoundingClientRect();
+      ripple.className = "button-ripple";
+      ripple.style.left = `${event.clientX - bounds.left}px`;
+      ripple.style.top = `${event.clientY - bounds.top}px`;
+      button.appendChild(ripple);
+
+      window.setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+}
+
+function setupContactForm() {
+  const form = document.querySelector("[data-contact-form]");
+  if (!form) return;
+
+  const status = form.querySelector("[data-form-status]");
+  const button = form.querySelector(".submit-button");
+  if (!status || !button) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const subject = `Portfolio inquiry from ${name || "Website Visitor"}`;
+    const body = `Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(
+      email
+    )}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+
+    button.classList.add("is-sending");
+    status.textContent = "Preparing your message...";
+
+    window.setTimeout(() => {
+      button.classList.remove("is-sending");
+      button.classList.add("is-success");
+      status.textContent = "Opening your email app...";
+      window.location.href = `mailto:${portfolio.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+      form.reset();
+
+      window.setTimeout(() => {
+        button.classList.remove("is-success");
+        status.textContent =
+          "If your email app does not open, you can still reach me directly using the email link.";
+      }, 1800);
+    }, 600);
+  });
+}
+
+function setupGsapAnimations() {
+  if (
+    document.body.dataset.page !== "home" ||
+    prefersReducedMotion() ||
+    hasCoarsePointer() ||
+    window.innerWidth <= 760 ||
+    !window.gsap ||
+    !window.ScrollTrigger
+  ) {
+    return;
+  }
+
+  window.gsap.registerPlugin(window.ScrollTrigger);
+
+  const introTimeline = window.gsap.timeline({
+    defaults: {
+      duration: 0.52,
+      ease: "power3.out"
+    }
+  });
+
+  introTimeline
+    .from(".site-header", { y: -18, opacity: 0, duration: 0.44 })
+    .from(".hero-copy .section-number, .hero-copy .eyebrow", { y: 14, opacity: 0, stagger: 0.04, duration: 0.32 }, "-=0.16")
+    .from(".hero-title", { y: 28, opacity: 0, duration: 0.5 }, "-=0.12")
+    .from(".hero-visual", { x: 18, opacity: 0, duration: 0.56 }, "-=0.34")
+    .from(".typed-line, .hero-copy .lead", { y: 14, opacity: 0, stagger: 0.05, duration: 0.34 }, "-=0.34")
+    .from(".hero-highlights span", { y: 12, opacity: 0, stagger: 0.05, duration: 0.28 }, "-=0.18")
+    .from(".hero-actions .button, .stats-grid .stat-card", { y: 12, opacity: 0, stagger: 0.05, duration: 0.3 }, "-=0.12");
+
+  const timelineShell = document.querySelector(".timeline-shell");
+  const timelineFill = document.querySelector("[data-timeline-fill]");
+  if (timelineShell && timelineFill) {
+    window.gsap.fromTo(
+      timelineFill,
+      { scaleY: 0, transformOrigin: "top center" },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: timelineShell,
+          start: "top 72%",
+          end: "bottom 34%",
+          scrub: true
+        }
+      }
+    );
+  }
+
+  const heroVisual = document.querySelector(".hero-visual");
+  if (heroVisual) {
+    window.gsap.to(heroVisual, {
+      yPercent: 10,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  }
 }
 
 function formatDate(value) {
@@ -618,21 +1185,28 @@ async function syncGitHubProjects() {
     const publicRepos = repos.filter((repo) => !repo.fork && !repo.archived);
 
     if (!publicRepos.length) {
-      portfolio.stats[0].value = String(portfolio.projects.length);
+      portfolio.stats[0].value = portfolio.projects.length;
       renderStats();
+      renderProjects();
       return;
     }
 
     portfolio.projects = publicRepos.map(mapGitHubRepoToProject);
-    portfolio.stats[0].value = String(publicRepos.length);
-    portfolio.stats[1].value = String(Math.min(3, publicRepos.length));
+    portfolio.stats[0].value = publicRepos.length;
 
     renderStats();
     renderProjects();
+    setupTiltCards();
+    setupSpotlightCards();
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.refresh();
+    }
   } catch (error) {
     console.warn("GitHub repo sync failed. Showing fallback projects instead.", error);
-    portfolio.stats[0].value = String(portfolio.projects.length);
+    portfolio.stats[0].value = portfolio.projects.length;
     renderStats();
+    renderProjects();
   }
 }
 
@@ -641,7 +1215,6 @@ function initializePortfolio() {
   fillText("[data-role]", portfolio.role);
   fillText("[data-location]", portfolio.location);
   fillText("[data-summary]", portfolio.summary);
-  fillText("[data-hero-title]", portfolio.heroTitle);
   fillText("[data-about-heading]", portfolio.aboutHeading);
   fillText("[data-about-short]", portfolio.aboutShort);
   fillText("[data-about-long]", portfolio.aboutLong);
@@ -661,7 +1234,6 @@ function initializePortfolio() {
   fillImage("[data-profile-image]", portfolio.profileImage, `${portfolio.name} GitHub profile picture`);
 
   renderStats();
-  renderProjects();
   renderProcess();
   renderFacts();
   renderLearningPath();
@@ -671,13 +1243,25 @@ function initializePortfolio() {
   renderValues();
   renderContactLinks();
   renderCollabFit();
+  renderSkillCards();
+  renderTimeline();
+  showProjectSkeletons();
   highlightCurrentPage();
+  setupHomeSectionHighlight();
   setupMobileNav();
   setupScrollProgress();
-  setupCursorGlow();
+  setupBackToTop();
+  setupCursorEffects();
   renderParticles();
-  showAboveFoldSections();
+  setupTypingEffect();
+  setupMagneticButtons();
+  setupButtonRipples();
+  setupSpotlightCards();
+  setupTiltCards();
+  setupContactForm();
+  markVisibleImmediately(".hero-section .reveal, .page-hero .reveal");
   observeReveals();
+  setupGsapAnimations();
   syncGitHubProjects();
 }
 

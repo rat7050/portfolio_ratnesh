@@ -6,12 +6,12 @@
     <title>Ratnesh Kumar | Portfolio</title>
     <meta
       name="description"
-      content="Portfolio website for Ratnesh Kumar, an AI and Data Science student building practical data, SQL, and machine learning projects."
+      content="Premium portfolio website for Ratnesh Kumar, an AI and Data Science student building practical data, SQL, and machine learning projects."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -19,16 +19,21 @@
   <body data-page="home">
     <div class="site-background" aria-hidden="true">
       <div class="grid-overlay"></div>
+      <div class="blob blob-one"></div>
+      <div class="blob blob-two"></div>
+      <div class="blob blob-three"></div>
       <div class="orb orb-one"></div>
       <div class="orb orb-two"></div>
       <div class="cursor-glow" data-cursor-glow></div>
       <div class="particle-field" data-particle-field></div>
     </div>
+
     <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+    <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>Top</button>
 
     <div class="page-shell">
       <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Ratnesh Kumar portfolio home">
+        <a class="brand" href="#top" aria-label="Ratnesh Kumar portfolio home">
           <span class="brand-mark">
             <img
               data-profile-image
@@ -50,36 +55,66 @@
         </button>
 
         <nav class="site-nav" data-nav>
-          <a href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="#top" data-section-link="top">Home</a>
+          <a href="#about" data-section-link="about">About</a>
+          <a href="#skills" data-section-link="skills">Skills</a>
+          <a href="#projects" data-section-link="projects">Projects</a>
+          <a href="#contact" data-section-link="contact">Contact</a>
         </nav>
       </header>
 
       <main>
         <section class="hero-section" id="top">
-          <div class="hero-copy reveal">
-            <p class="section-number">01. Intro</p>
-            <p class="eyebrow">AI / Data / SQL</p>
-            <h1 data-hero-title>Ratnesh Kumar builds practical AI and data projects.</h1>
+          <div class="hero-copy">
+            <p class="section-number">01. Hero</p>
+            <p class="eyebrow">AI / Data / Python / Machine Learning</p>
+            <h1 class="hero-title"><span data-name>Ratnesh Kumar</span></h1>
+            <p class="typed-line">
+              <span class="typed-prefix">Working as an </span>
+              <span class="typed-role" data-typed-role></span>
+              <span class="typed-caret" aria-hidden="true"></span>
+            </p>
             <p class="lead" data-summary>
               AI &amp; Data Science student focused on SQL, analytics, Python, and machine learning projects that solve real problems clearly.
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="#recent-work">View Work</a>
-              <a class="button button-secondary" data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="button button-tertiary" data-linkedin-link href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button button-primary" href="#projects" data-magnetic>Explore Projects</a>
+              <a
+                class="button button-secondary"
+                data-github-link
+                data-magnetic
+                href="https://github.com/rat7050"
+                target="_blank"
+                rel="noreferrer"
+                >GitHub</a
+              >
+              <a
+                class="button button-tertiary"
+                data-linkedin-link
+                data-magnetic
+                href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank"
+                rel="noreferrer"
+                >LinkedIn</a
+              >
+            </div>
+
+            <div class="hero-highlights">
+              <span>Recruiter-friendly portfolio</span>
+              <span>Live GitHub synced projects</span>
+              <span>Focused on practical AI work</span>
             </div>
 
             <div class="stats-grid" data-stats></div>
           </div>
 
-          <div class="hero-visual reveal delay-1">
+          <div class="hero-visual">
+            <div class="profile-ring"></div>
+            <div class="profile-ring ring-two"></div>
             <div class="portrait-shell">
               <div class="portrait-outline"></div>
-              <div class="portrait-card">
+              <div class="portrait-card glass-card" data-spotlight-card>
                 <img
                   data-profile-image
                   src="https://github.com/rat7050.png"
@@ -89,35 +124,39 @@
                   referrerpolicy="no-referrer"
                 />
               </div>
-              <div class="floating-badge badge-top">GitHub synced projects</div>
-              <div class="floating-badge badge-bottom">Open to collaborate</div>
+              <div class="floating-badge badge-top">Premium recruiter-ready portfolio</div>
+              <div class="floating-badge badge-bottom">Open to internships and projects</div>
             </div>
           </div>
         </section>
 
         <section class="section-shell" id="about">
           <div class="section-heading reveal">
-            <p class="section-number">02. About Me</p>
+            <p class="section-number">02. About</p>
             <h2 data-about-heading>I enjoy transforming raw information into systems, insights, and useful decisions.</h2>
+            <p class="section-copy">
+              This portfolio is designed to show both technical skill and the ability to turn data into outcomes that matter.
+            </p>
           </div>
 
-          <div class="info-grid">
-            <article class="story-panel reveal">
+          <div class="about-grid">
+            <article class="story-panel glass-card reveal" data-spotlight-card>
               <p data-about-long>
                 I am an AI and Data Science student who likes building practical projects instead of staying only at theory level. From SQL-based systems to analytics-driven problem solving, I enjoy understanding how data moves, what it reveals, and how it can support better decisions.
               </p>
               <p data-about-short>
                 My work is grounded in data-first thinking: collect the right information, structure it well, analyze it carefully, and present it clearly.
               </p>
+              <div class="about-points" data-process></div>
               <a class="inline-link" href="about.html">Read full profile</a>
             </article>
 
-            <aside class="system-card reveal delay-1">
+            <aside class="system-card glass-card reveal delay-1" data-spotlight-card>
               <div class="terminal-bar">
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>sys_info</p>
+                <p>profile_snapshot</p>
               </div>
               <div class="system-grid">
                 <div>
@@ -138,40 +177,33 @@
                 </div>
                 <div>
                   <span>Status</span>
-                  <strong>Learning and building</strong>
+                  <strong>Building portfolio-ready work</strong>
                 </div>
                 <div>
                   <span>Contact</span>
-                  <a data-email-link href="mailto:ratneshkumar77659@gmail.com">Email me</a>
+                  <a data-email-link href="mailto:ratneshkumar77659@gmail.com">ratneshkumar77659@gmail.com</a>
                 </div>
               </div>
             </aside>
           </div>
         </section>
 
-        <section class="section-shell" id="stack">
+        <section class="section-shell" id="skills">
           <div class="section-heading reveal">
-            <p class="section-number">03. Tech Stack</p>
-            <h2>Tools and working methods I use to turn raw data into clear outcomes.</h2>
+            <p class="section-number">03. Skills</p>
+            <h2>Technical strengths presented with clarity, depth, and real working confidence.</h2>
+            <p class="section-copy">
+              These are the areas I use most when building data projects, solving SQL problems, and exploring applied machine learning.
+            </p>
           </div>
 
-          <div class="tech-layout">
-            <article class="stack-surface reveal">
-              <p class="eyebrow">Core Tools</p>
-              <div class="chip-cloud" data-tech-stack></div>
-            </article>
-
-            <article class="stack-surface reveal delay-1">
-              <p class="eyebrow">How I Work</p>
-              <div class="process-list" data-process></div>
-            </article>
-          </div>
+          <div class="skills-grid" data-skills></div>
         </section>
 
-        <section class="section-shell" id="recent-work">
+        <section class="section-shell" id="projects">
           <div class="section-heading reveal">
-            <p class="section-number">04. Recent Work</p>
-            <h2>Latest public repositories synced from GitHub.</h2>
+            <p class="section-number">04. Projects</p>
+            <h2>Selected repositories that show practical execution, not just theory.</h2>
             <p class="section-copy" data-project-summary>
               These repositories are synced from GitHub so new public repos can appear here automatically.
             </p>
@@ -179,48 +211,103 @@
 
           <div class="project-grid featured" data-projects="featured"></div>
 
-          <div class="section-actions reveal delay-2">
-            <a class="button button-secondary" href="projects.html">See All Repositories</a>
+          <div class="section-actions reveal">
+            <a class="button button-secondary" href="projects.html" data-magnetic>View All Repositories</a>
+          </div>
+        </section>
+
+        <section class="section-shell" id="timeline">
+          <div class="section-heading reveal">
+            <p class="section-number">05. Journey</p>
+            <h2>A clear path from learning fundamentals to building applied AI and analytics projects.</h2>
+            <p class="section-copy">
+              This section highlights how I am steadily growing from strong foundations into more polished engineering and machine learning work.
+            </p>
+          </div>
+
+          <div class="timeline-shell">
+            <div class="timeline-rail" aria-hidden="true">
+              <span class="timeline-fill" data-timeline-fill></span>
+            </div>
+            <div class="timeline-stack" data-timeline></div>
           </div>
         </section>
 
         <section class="section-shell" id="contact">
           <div class="section-heading reveal">
-            <p class="section-number">05. What&apos;s Next?</p>
+            <p class="section-number">06. Contact</p>
             <h2 data-availability-title>Looking for opportunities where technical work creates visible value.</h2>
             <p class="section-copy" data-availability-copy>
               I am especially excited by collaborations around AI, SQL, data analysis, and project-based learning that can grow into strong real-world case studies.
             </p>
           </div>
 
-          <div class="contact-panel reveal delay-1">
-            <div class="contact-actions">
-              <a class="button button-primary" data-email-link href="mailto:ratneshkumar77659@gmail.com">Email Me</a>
-              <a class="button button-secondary" data-linkedin-link href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="button button-tertiary" data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
+          <div class="contact-grid premium-contact">
+            <article class="contact-panel glass-card reveal" data-spotlight-card>
+              <div class="contact-copy">
+                <p class="eyebrow">Let&apos;s Build</p>
+                <h3>Recruiters, teams, and collaborators can reach me directly here.</h3>
+                <p data-contact-intro>
+                  If you are working on analytics, SQL, AI, or data-heavy ideas, I would be happy to connect and explore how I can contribute.
+                </p>
+              </div>
 
-            <article class="quote-card">
-              <p class="eyebrow">Working Note</p>
-              <p data-quote>
-                I am most interested in projects where data is not just stored, but used to solve a real problem clearly and practically.
-              </p>
+              <div class="contact-list" data-contact-links></div>
+
+              <div class="contact-actions">
+                <a class="button button-primary" data-email-link data-magnetic href="mailto:ratneshkumar77659@gmail.com">Email Me</a>
+                <a
+                  class="button button-secondary"
+                  data-linkedin-link
+                  data-magnetic
+                  href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noreferrer"
+                  >LinkedIn</a
+                >
+              </div>
             </article>
+
+            <form class="contact-form glass-card reveal delay-1" data-contact-form data-spotlight-card>
+              <div class="field">
+                <input id="contact-name" name="name" type="text" placeholder=" " required />
+                <label for="contact-name">Your name</label>
+              </div>
+
+              <div class="field">
+                <input id="contact-email" name="email" type="email" placeholder=" " required />
+                <label for="contact-email">Your email</label>
+              </div>
+
+              <div class="field">
+                <textarea id="contact-message" name="message" rows="5" placeholder=" " required></textarea>
+                <label for="contact-message">Tell me about your opportunity</label>
+              </div>
+
+              <button class="button button-primary submit-button" type="submit" data-magnetic>
+                <span>Send Message</span>
+              </button>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
           </div>
         </section>
       </main>
 
-      <footer class="site-footer">
+      <footer class="site-footer reveal">
         <p><span data-name>Ratnesh Kumar</span> / <span data-role>AI &amp; Data Science Student</span></p>
-        <div class="footer-links">
-          <a data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer">GitHub</a>
-          <a data-linkedin-link href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a data-email-link href="mailto:ratneshkumar77659@gmail.com">Email</a>
+
+        <div class="footer-socials">
+          <a class="social-badge" data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+          <a class="social-badge" data-linkedin-link href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" aria-label="LinkedIn">IN</a>
+          <a class="social-badge" data-email-link href="mailto:ratneshkumar77659@gmail.com" aria-label="Email">@</a>
         </div>
-        <p>&copy; <span data-year></span></p>
+
+        <p>&copy; <span data-year></span> Premium portfolio experience</p>
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

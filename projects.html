@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -19,12 +19,16 @@
   <body data-page="projects">
     <div class="site-background" aria-hidden="true">
       <div class="grid-overlay"></div>
+      <div class="blob blob-one"></div>
+      <div class="blob blob-two"></div>
+      <div class="blob blob-three"></div>
       <div class="orb orb-one"></div>
       <div class="orb orb-two"></div>
       <div class="cursor-glow" data-cursor-glow></div>
       <div class="particle-field" data-particle-field></div>
     </div>
     <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+    <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>Top</button>
 
     <div class="page-shell">
       <header class="site-header">
@@ -93,7 +97,7 @@
         </section>
       </main>
 
-      <footer class="site-footer">
+      <footer class="site-footer reveal">
         <p>Project list updates automatically from GitHub.</p>
         <div class="footer-links">
           <a data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer">GitHub Profile</a>
@@ -103,6 +107,6 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
