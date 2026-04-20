@@ -11,12 +11,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="contact">
+    <div class="site-background" aria-hidden="true">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="cursor-glow" data-cursor-glow></div>
+      <div class="particle-field" data-particle-field></div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="index.html" aria-label="Ratnesh Kumar portfolio home">
@@ -35,9 +44,11 @@
             <small data-role>AI &amp; Data Science Student</small>
           </span>
         </a>
+
         <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
           Menu
         </button>
+
         <nav class="site-nav" data-nav>
           <a href="index.html">Home</a>
           <a href="projects.html">Projects</a>
@@ -47,38 +58,56 @@
       </header>
 
       <main>
-        <section class="page-hero panel compact">
-          <p class="eyebrow">Let's Connect</p>
-          <h1>Open to collaboration, learning opportunities, and practical project work.</h1>
-          <p data-contact-intro>
-            If you are building something in AI, analytics, SQL, dashboards, or data workflows, I would love to connect.
-          </p>
+        <section class="page-hero">
+          <div class="page-hero-copy reveal">
+            <p class="section-number">01. Contact</p>
+            <h1>Open to collaboration, internships, and data-focused project work.</h1>
+            <p class="lead" data-contact-intro>
+              If you are working on analytics, SQL, AI, or data-heavy ideas, I would be happy to connect and explore how I can contribute.
+            </p>
+          </div>
         </section>
 
-        <section class="contact-layout">
-          <article class="panel">
-            <p class="section-tag">Reach Out</p>
-            <div class="contact-list" data-contact-links></div>
-          </article>
+        <section class="section-shell">
+          <div class="contact-grid">
+            <article class="stack-surface reveal">
+              <p class="section-number">02. Reach Out</p>
+              <div class="contact-list" data-contact-links></div>
+            </article>
 
-          <article class="panel">
-            <p class="section-tag">Best Fit</p>
-            <div class="contact-fit" data-collab-fit></div>
-          </article>
+            <article class="stack-surface reveal delay-1">
+              <p class="section-number">03. Best Fit</p>
+              <div class="contact-fit" data-collab-fit></div>
+            </article>
+          </div>
         </section>
 
-        <section class="panel note-panel">
-          <p class="section-tag">Availability</p>
-          <h2 data-availability-title>Looking for projects where data leads to clear action.</h2>
-          <p data-availability-copy>
-            Student collaborations, portfolio projects, SQL analysis, and applied data problems are all a strong fit.
-          </p>
+        <section class="section-shell">
+          <div class="contact-panel reveal">
+            <div>
+              <p class="section-number">04. Availability</p>
+              <h2 data-availability-title>Looking for opportunities where technical work creates visible value.</h2>
+              <p class="section-copy" data-availability-copy>
+                Student collaborations, portfolio projects, SQL analysis, and applied data problems are all a strong fit.
+              </p>
+            </div>
+
+            <div class="contact-actions">
+              <a class="button button-primary" data-email-link href="mailto:ratneshkumar77659@gmail.com">Email Me</a>
+              <a class="button button-secondary" data-linkedin-link href="https://www.linkedin.com/in/ratnesh-kumar-692376338?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
         </section>
       </main>
 
       <footer class="site-footer">
         <p>Thanks for visiting.</p>
-        <p>&copy; <span data-year></span> <span data-name>Ratnesh Kumar</span></p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <p>&copy; <span data-year></span></p>
       </footer>
     </div>
 

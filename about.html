@@ -11,12 +11,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="about">
+    <div class="site-background" aria-hidden="true">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="cursor-glow" data-cursor-glow></div>
+      <div class="particle-field" data-particle-field></div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="index.html" aria-label="Ratnesh Kumar portfolio home">
@@ -35,9 +44,11 @@
             <small data-role>AI &amp; Data Science Student</small>
           </span>
         </a>
+
         <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
           Menu
         </button>
+
         <nav class="site-nav" data-nav>
           <a href="index.html">Home</a>
           <a href="projects.html">Projects</a>
@@ -47,64 +58,94 @@
       </header>
 
       <main>
-        <section class="page-hero panel compact">
-          <p class="eyebrow">About Me</p>
-          <h1 data-name>Ratnesh Kumar</h1>
-          <p data-about-long>
-            I am an AI and Data Science student who enjoys combining technical learning with practical execution. My work often starts with data, then moves into structure, analysis, and clear outcomes.
-          </p>
-          <div class="portrait-inline">
-            <img
-              data-profile-image
-              src="https://github.com/rat7050.png"
-              alt="Ratnesh Kumar GitHub profile picture"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
+        <section class="page-hero">
+          <div class="page-hero-copy reveal">
+            <p class="section-number">01. About Me</p>
+            <h1><span data-name>Ratnesh Kumar</span> is focused on practical AI, data, and SQL work.</h1>
+            <p class="lead" data-about-long>
+              I am an AI and Data Science student who likes building practical projects instead of staying only at theory level.
+            </p>
+          </div>
+
+          <div class="page-hero-visual reveal delay-1">
+            <div class="mini-portrait">
+              <img
+                data-profile-image
+                src="https://github.com/rat7050.png"
+                alt="Ratnesh Kumar GitHub profile picture"
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+            </div>
           </div>
         </section>
 
-        <section class="about-layout">
-          <article class="panel">
-            <p class="section-tag">Quick Snapshot</p>
-            <div class="profile-facts" data-facts></div>
-          </article>
+        <section class="section-shell">
+          <div class="info-grid">
+            <article class="story-panel reveal">
+              <p class="section-number">02. Profile</p>
+              <h2>I like turning complex information into something useful, readable, and actionable.</h2>
+              <p data-about-short>
+                My work is grounded in data-first thinking: collect the right information, structure it well, analyze it carefully, and present it clearly.
+              </p>
+            </article>
 
-          <article class="panel">
-            <p class="section-tag">Currently Exploring</p>
-            <div class="timeline" data-learning-path></div>
-          </article>
-        </section>
-
-        <section class="panel">
-          <div class="section-heading">
-            <p class="section-tag">Strengths</p>
-            <h2>I like building systems that are clear, useful, and grounded in real use cases.</h2>
+            <aside class="system-card reveal delay-1">
+              <div class="terminal-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>profile_snapshot</p>
+              </div>
+              <div class="system-grid" data-facts></div>
+            </aside>
           </div>
-          <div class="chip-cloud large" data-strengths></div>
         </section>
 
-        <section class="panel">
-          <div class="section-heading">
-            <p class="section-tag">Certificates</p>
-            <h2>Learning milestones and verified credentials from LinkedIn.</h2>
+        <section class="section-shell">
+          <div class="section-heading reveal">
+            <p class="section-number">03. Learning Path</p>
+            <h2>Current direction, what I am exploring, and where I want to grow next.</h2>
+          </div>
+          <div class="timeline-grid" data-learning-path></div>
+        </section>
+
+        <section class="section-shell">
+          <div class="section-heading reveal">
+            <p class="section-number">04. Strengths</p>
+            <h2>Working strengths that show up consistently across my projects.</h2>
+          </div>
+          <div class="stack-surface reveal">
+            <div class="chip-cloud large" data-strengths></div>
+          </div>
+        </section>
+
+        <section class="section-shell">
+          <div class="section-heading reveal">
+            <p class="section-number">05. Certificates</p>
+            <h2>Learning milestones and profile-based credentials.</h2>
           </div>
           <div class="certificate-grid" data-certificates></div>
         </section>
 
-        <section class="panel">
-          <div class="section-heading">
-            <p class="section-tag">Working Style</p>
-            <h2>Learning fast, shipping steadily, and improving with each project.</h2>
+        <section class="section-shell">
+          <div class="section-heading reveal">
+            <p class="section-number">06. Working Style</p>
+            <h2>The mindset I bring into technical learning and project execution.</h2>
           </div>
-          <div class="bullet-columns" data-values></div>
+          <div class="bullet-grid" data-values></div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <p>Interested in AI, analytics, and meaningful project work.</p>
-        <p>&copy; <span data-year></span> <span data-name>Ratnesh Kumar</span></p>
+        <p>Always learning, building, and improving.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; <span data-year></span></p>
       </footer>
     </div>
 

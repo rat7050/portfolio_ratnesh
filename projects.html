@@ -11,12 +11,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="projects">
+    <div class="site-background" aria-hidden="true">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="cursor-glow" data-cursor-glow></div>
+      <div class="particle-field" data-particle-field></div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="index.html" aria-label="Ratnesh Kumar portfolio home">
@@ -35,9 +44,11 @@
             <small data-role>AI &amp; Data Science Student</small>
           </span>
         </a>
+
         <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
           Menu
         </button>
+
         <nav class="site-nav" data-nav>
           <a href="index.html">Home</a>
           <a href="projects.html">Projects</a>
@@ -47,36 +58,48 @@
       </header>
 
       <main>
-        <section class="page-hero panel compact">
-          <p class="eyebrow">GitHub Repositories</p>
-          <h1>Public repositories pulled directly from GitHub.</h1>
-          <p data-project-summary>
-            These repositories are synced from GitHub so new public repos can appear here automatically.
-          </p>
+        <section class="page-hero">
+          <div class="page-hero-copy reveal">
+            <p class="section-number">01. Recent Work</p>
+            <h1>Public GitHub repositories pulled directly into the portfolio.</h1>
+            <p class="lead" data-project-summary>
+              These repositories are synced from GitHub so new public repos can appear here automatically.
+            </p>
+          </div>
         </section>
 
-        <section class="section-block">
+        <section class="section-shell">
           <div class="project-grid" data-projects="all"></div>
         </section>
 
-        <section class="panel note-panel">
-          <p class="section-tag">What These Projects Show</p>
-          <div class="bullet-columns">
-            <div>
-              <h2>Technical Thinking</h2>
-              <p>I design schemas, write queries, analyze patterns, and focus on clean logic before presentation.</p>
-            </div>
-            <div>
-              <h2>Business Relevance</h2>
-              <p>I like projects that turn raw records into insights about inventory, revenue, operations, or user behavior.</p>
+        <section class="section-shell">
+          <div class="stack-surface reveal">
+            <p class="section-number">02. Why These Matter</p>
+            <div class="bullet-grid">
+              <article class="value-card">
+                <h3>Technical thinking</h3>
+                <p>I focus on schemas, queries, analysis flow, and clean structure before presentation.</p>
+              </article>
+              <article class="value-card">
+                <h3>Business relevance</h3>
+                <p>I like projects that turn raw records into insights about operations, revenue, customers, or performance.</p>
+              </article>
+              <article class="value-card">
+                <h3>Continuous growth</h3>
+                <p>Because this page reads from GitHub, it grows with each new public repository I publish.</p>
+              </article>
             </div>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <p>More work and collaborations coming soon.</p>
-        <p>&copy; <span data-year></span> <span data-name>Ratnesh Kumar</span></p>
+        <p>Project list updates automatically from GitHub.</p>
+        <div class="footer-links">
+          <a data-github-link href="https://github.com/rat7050" target="_blank" rel="noreferrer">GitHub Profile</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; <span data-year></span></p>
       </footer>
     </div>
 
