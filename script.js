@@ -143,6 +143,14 @@ const portfolio = {
 
 let revealObserver;
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function hasCoarsePointer() {
+  return window.matchMedia("(pointer: coarse)").matches;
+}
+
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (character) => {
     const entities = {
@@ -232,6 +240,54 @@ function showAboveFoldSections() {
   });
 }
 
+function bindTiltEffect(selector, options = {}) {
+  const config = {
+    maxTilt: options.maxTilt ?? 5,
+    hoverShift: options.hoverShift ?? -4
+  };
+
+  document.querySelectorAll(selector).forEach((element) => {
+    if (element.dataset.tiltBound === "true") return;
+
+    element.dataset.tiltBound = "true";
+
+    const reset = () => {
+      element.style.setProperty("--tilt-x", "0deg");
+      element.style.setProperty("--tilt-y", "0deg");
+      element.style.setProperty("--hover-shift", "0px");
+      element.style.setProperty("--shine-x", "50%");
+      element.style.setProperty("--shine-y", "50%");
+    };
+
+    element.addEventListener("pointermove", (event) => {
+      const rect = element.getBoundingClientRect();
+      const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+      const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+      const shineX = ((event.clientX - rect.left) / rect.width) * 100;
+      const shineY = ((event.clientY - rect.top) / rect.height) * 100;
+
+      element.style.setProperty("--tilt-y", `${(offsetX * config.maxTilt).toFixed(2)}deg`);
+      element.style.setProperty("--tilt-x", `${(-offsetY * config.maxTilt).toFixed(2)}deg`);
+      element.style.setProperty("--hover-shift", `${config.hoverShift}px`);
+      element.style.setProperty("--shine-x", `${shineX.toFixed(1)}%`);
+      element.style.setProperty("--shine-y", `${shineY.toFixed(1)}%`);
+    });
+
+    element.addEventListener("pointerleave", reset);
+    element.addEventListener("pointercancel", reset);
+  });
+}
+
+function setupTiltEffects() {
+  if (prefersReducedMotion() || hasCoarsePointer()) return;
+
+  bindTiltEffect(".portrait-card, .mini-portrait", { maxTilt: 8, hoverShift: -6 });
+  bindTiltEffect(
+    ".project-card, .story-panel, .system-card, .stack-surface, .quote-card, .timeline-item, .certificate-card, .value-card, .contact-item, .fit-card",
+    { maxTilt: 4.2, hoverShift: -4 }
+  );
+}
+
 function renderChips(containerSelector, items) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
@@ -305,6 +361,7 @@ function renderProjects() {
       .join("");
   });
 
+  setupTiltEffects();
   observeReveals();
 }
 
@@ -518,7 +575,7 @@ function setupCursorGlow() {
   const glow = document.querySelector("[data-cursor-glow]");
   if (!glow) return;
 
-  if (window.matchMedia("(pointer: coarse)").matches) {
+  if (hasCoarsePointer()) {
     glow.classList.add("hidden");
     return;
   }
@@ -530,6 +587,75 @@ function setupCursorGlow() {
   };
 
   window.addEventListener("pointermove", setGlowPosition);
+}
+
+function setupMagneticButtons() {
+  if (prefersReducedMotion() || hasCoarsePointer()) return;
+
+  document.querySelectorAll(".button").forEach((button) => {
+    if (button.dataset.magneticBound === "true") return;
+
+    button.dataset.magneticBound = "true";
+
+    const reset = () => {
+      button.style.setProperty("--magnetic-x", "0px");
+      button.style.setProperty("--magnetic-y", "0px");
+      button.style.setProperty("--spotlight-x", "50%");
+      button.style.setProperty("--spotlight-y", "50%");
+    };
+
+    button.addEventListener("pointermove", (event) => {
+      const rect = button.getBoundingClientRect();
+      const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+      const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+      const spotlightX = ((event.clientX - rect.left) / rect.width) * 100;
+      const spotlightY = ((event.clientY - rect.top) / rect.height) * 100;
+
+      button.style.setProperty("--magnetic-x", `${(offsetX * 14).toFixed(2)}px`);
+      button.style.setProperty("--magnetic-y", `${(offsetY * 10).toFixed(2)}px`);
+      button.style.setProperty("--spotlight-x", `${spotlightX.toFixed(1)}%`);
+      button.style.setProperty("--spotlight-y", `${spotlightY.toFixed(1)}%`);
+    });
+
+    button.addEventListener("pointerleave", reset);
+    button.addEventListener("pointercancel", reset);
+  });
+}
+
+function setupScrollScenes() {
+  if (prefersReducedMotion()) return;
+
+  const layers = [
+    { selector: ".hero-copy", intensity: -32 },
+    { selector: ".hero-visual", intensity: 26 },
+    { selector: ".section-heading", intensity: -14 },
+    { selector: ".story-panel, .system-card, .stack-surface, .contact-panel", intensity: 12 }
+  ];
+
+  let ticking = false;
+
+  const updateLayers = () => {
+    layers.forEach((layer) => {
+      document.querySelectorAll(layer.selector).forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+        const normalizedOffset = Math.max(-1, Math.min(1, centerOffset / (window.innerHeight * 0.8)));
+        element.style.setProperty("--parallax-y", `${Math.round(normalizedOffset * layer.intensity)}px`);
+      });
+    });
+
+    ticking = false;
+  };
+
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateLayers);
+  };
+
+  updateLayers();
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
 }
 
 function renderParticles() {
@@ -661,7 +787,10 @@ function initializePortfolio() {
   setupMobileNav();
   setupScrollProgress();
   setupCursorGlow();
+  setupMagneticButtons();
   renderParticles();
+  setupTiltEffects();
+  setupScrollScenes();
   showAboveFoldSections();
   observeReveals();
   syncGitHubProjects();
